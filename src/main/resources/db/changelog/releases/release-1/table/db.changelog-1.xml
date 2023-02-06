@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<databaseChangeLog
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+			xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+			xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	
+		<changeSet author="author.name" id="1 Created new table">
+			<!-- Validations -->
+			<preConditions>
+				<not>
+					<tableExists tableName="PROVIDER"/>
+				</not>
+			</preConditions>
+			<!-- Create Table -->
+			<createTable tableName="PROVIDER">
+				<column autoIncrement="true" name="id" type="INT">
+					<constraints primaryKey="true"/>
+				</column>
+				<column name="NAME" type="VARCHAR(255)">
+					<constraints nullable="false"/>
+				</column>  
+				<column name="NPI" type="VARCHAR(255)">
+					<constraints nullable="false"/>
+				</column>
+				<column name="ADDRESS" type="VARCHAR(255)">
+					<constraints nullable="false"/>
+				</column>
+				<column name="TYPE" type="VARCHAR(255)">
+					<constraints nullable="false"/>
+				</column>
+				<column name="STATUS" type="VARCHAR(255)">
+					<constraints nullable="false"/>
+				</column>
+			</createTable>
+			<!-- Roll back -->
+			<rollback>
+				<dropTable tableName="PROVIDER"/>
+			</rollback>
+			<comment>Created new table named 'PROVIDER'</comment>
+		</changeSet>
+
+	<changeSet author="author.name" id="1 Created new User table">
+		<!-- Validations -->
+		<preConditions>
+			<not>
+				<tableExists tableName="USER"/>
+			</not>
+		</preConditions>
+		<!-- Create Table -->
+
+		<createTable tableName="USER_DETAILS">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="FIRST_NAME" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="LAST_NAME" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="EMAIL" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="PASSWORD" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="ADDRESS" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<!-- Roll back -->
+		<rollback>
+			<dropTable tableName="USER_DETAILS"/>
+		</rollback>
+		<comment>Created new table named 'USER_DETAILS'</comment>
+	</changeSet>
+
+	<changeSet author="author.name" id="1 Created new Employee table">
+		<!-- Validations -->
+		<preConditions>
+			<not>
+				<tableExists tableName="EMPLOYEE_DETAILS"/>
+			</not>
+		</preConditions>
+		<!-- Create Table -->
+
+		<createTable tableName="EMPLOYEE_DETAILS">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="APPLICATION_ID" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="STATUS" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="NAME" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="TYPE" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="NPI" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="APPLICATION" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="COMPLETE" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="LAST_UPDATE" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="OWNER" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="ACTIONS" type="VARCHAR(255)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<!-- Roll back -->
+		<rollback>
+			<dropTable tableName="EMPLOYEE_DETAILS"/>
+		</rollback>
+		<comment>Created new table named 'EMPLOYEE_DETAILS'</comment>
+	</changeSet>
+	</databaseChangeLog>
