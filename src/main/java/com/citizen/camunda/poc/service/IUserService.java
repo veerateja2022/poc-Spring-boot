@@ -1,5 +1,6 @@
 package com.citizen.camunda.poc.service;
 
+import com.citizen.camunda.poc.model.EmailModel;
 import com.citizen.camunda.poc.model.EmployeeDetailsModel;
 import com.citizen.camunda.poc.model.User;
 import com.citizen.camunda.poc.model.UserModel;
@@ -17,4 +18,6 @@ public interface IUserService {
   void saveUser(UserModel userModel);
 
   List<EmployeeDetailsModel> getAllEmployee();
+
+  String sendEmail(EmailModel emailModel);
 }

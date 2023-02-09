@@ -1,5 +1,6 @@
 package com.citizen.camunda.poc.controller;
 
+import com.citizen.camunda.poc.model.EmailModel;
 import com.citizen.camunda.poc.model.EmployeeDetailsModel;
 import com.citizen.camunda.poc.model.UserModel;
 import com.citizen.camunda.poc.service.IUserService;
@@ -49,6 +50,11 @@ public class AuthController {
   @GetMapping("/getAllEmployee")
   public ResponseEntity<List<EmployeeDetailsModel>> getAllEmployee() {
     return ResponseEntity.ok().body(userAccessService.getAllEmployee());
+  }
+
+  @PostMapping("/sendEmail")
+  public ResponseEntity<String> sendEmail(@RequestBody EmailModel emailModel) {
+    return ResponseEntity.ok().body(userAccessService.sendEmail(emailModel));
   }
 
 }

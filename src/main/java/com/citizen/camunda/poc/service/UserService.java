@@ -1,6 +1,8 @@
 package com.citizen.camunda.poc.service;
 
+import com.citizen.camunda.poc.config.EmailConfig;
 import com.citizen.camunda.poc.entity.EmployeeDetails;
+import com.citizen.camunda.poc.model.EmailModel;
 import com.citizen.camunda.poc.model.EmployeeDetailsModel;
 import com.citizen.camunda.poc.model.User;
 import com.citizen.camunda.poc.model.UserModel;
@@ -10,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -28,6 +32,9 @@ public class UserService implements IUserService {
 
   @Autowired
   private EmployeeRepository employeeRepository;
+
+  @Autowired
+  private JavaMailSender javaMailSender;
 
   public UserService() {
     this.sessions = new ConcurrentHashMap<>();
@@ -71,6 +78,17 @@ public class UserService implements IUserService {
   public List<EmployeeDetailsModel> getAllEmployee() {
     List<EmployeeDetails> employeeDetailsList = employeeRepository.findAll();
     return employeeDetailsList.stream().map(this::constructEmployeeDetailsModel).collect(Collectors.toList());
+  }
+
+  @Override
+  public String sendEmail(EmailModel mail) {
+    SimpleMailMessage msg = new SimpleMailMessage();
+    msg.setTo(mail.getTo());
+    msg.setFrom(mail.getFrom());
+    msg.setSubject(mail.getSubject());
+    msg.setText(mail.getContent());
+    javaMailSender.send(msg);
+    return "Success";
   }
 
   private EmployeeDetailsModel constructEmployeeDetailsModel(EmployeeDetails employeeDetails) {
