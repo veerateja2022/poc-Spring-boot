@@ -2,6 +2,7 @@ package com.citizen.camunda.poc.controller;
 
 import com.citizen.camunda.poc.model.EmailModel;
 import com.citizen.camunda.poc.model.EmployeeDetailsModel;
+import com.citizen.camunda.poc.model.SuccessResponse;
 import com.citizen.camunda.poc.model.UserModel;
 import com.citizen.camunda.poc.service.IUserService;
 import org.springframework.http.HttpStatus;
@@ -53,8 +54,9 @@ public class AuthController {
   }
 
   @PostMapping("/sendEmail")
-  public ResponseEntity<String> sendEmail(@RequestBody EmailModel emailModel) {
-    return ResponseEntity.ok().body(userAccessService.sendEmail(emailModel));
+  public SuccessResponse sendEmail(@RequestBody EmailModel emailModel) {
+    userAccessService.sendEmail(emailModel);
+    return SuccessResponse.builder().httpStatus(HttpStatus.ACCEPTED).message("Success").build();
   }
 
 }

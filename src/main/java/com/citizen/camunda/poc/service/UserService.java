@@ -87,7 +87,7 @@ public class UserService implements IUserService {
     msg.setFrom(mail.getFrom());
     msg.setSubject(mail.getSubject());
     msg.setText(mail.getContent());
-    javaMailSender.send(msg);
+    //javaMailSender.send(msg);
     return "Success";
   }
 
