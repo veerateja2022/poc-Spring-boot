@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "59fcec8d-d97e-4e98-9e86-fa5a395da5d2",
+		"name": "Reference Type",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1307155"
+	},
+	"item": [
+		{
+			"name": "Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"referenceType\":\"referenceType\",\r\n    \"referenceTypeDesc\":\"referenceTypeDesc\",\r\n    \"referenceValue\":\"referenceValue\",\r\n    \"referenceValueDesc\":\"referenceValueDesc\",\r\n    \"effectiveStartDate\":\"2023-02-22\",\r\n    \"effectiveEndDate\":\"2024-02-22\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/referenceType",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"referenceType\":\"referenceType_2\",\r\n    \"referenceTypeDesc\":\"referenceTypeDesc_2\",\r\n    \"referenceValue\":\"referenceValue_2\",\r\n    \"referenceValueDesc\":\"referenceValueDesc_2\",\r\n    \"effectiveStartDate\":\"2023-02-22\",\r\n    \"effectiveEndDate\":\"2024-02-22\",\r\n    \"id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/referenceType",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/referenceType/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/referenceType",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/referenceType/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
