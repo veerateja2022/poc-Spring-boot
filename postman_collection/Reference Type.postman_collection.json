@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"referenceType\":\"referenceType\",\r\n    \"referenceTypeDesc\":\"referenceTypeDesc\",\r\n    \"referenceValue\":\"referenceValue\",\r\n    \"referenceValueDesc\":\"referenceValueDesc\",\r\n    \"effectiveStartDate\":\"2023-02-22\",\r\n    \"effectiveEndDate\":\"2024-02-22\"\r\n}",
+					"raw": "{\r\n    \"referenceType\":\"referenceType1\",\r\n    \"referenceTypeDesc\":\"referenceTypeDesc1\",\r\n    \"referenceValue\":\"referenceValue1\",\r\n    \"referenceValueDesc\":\"referenceValueDesc1\",\r\n    \"effectiveStartDate\":\"2023-02-23\",\r\n    \"effectiveEndDate\":\"2024-02-23\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -29,6 +29,35 @@
 					"port": "8080",
 					"path": [
 						"referenceType"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search By Field",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\":\"referenceTypeDesc\",\r\n    \"value\":\"referenceTypeDesc2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/referenceType/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType",
+						"search"
 					]
 				}
 			},
@@ -77,6 +106,63 @@
 					"path": [
 						"referenceType",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[1,2,5]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/referenceType",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Export Data By Ids",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[1,2,5]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/referenceType/export",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType",
+						"export"
 					]
 				}
 			},
