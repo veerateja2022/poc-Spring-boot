@@ -2,6 +2,7 @@ package com.citizen.camunda.poc.controller;
 
 import com.citizen.camunda.poc.model.ReferenceTypeModel;
 import com.citizen.camunda.poc.model.ReferenceTypeSearchModel;
+import com.citizen.camunda.poc.model.ReferenceTypeViewModel;
 import com.citizen.camunda.poc.service.IReferenceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class ReferenceTypeController {
     private IReferenceTypeService iReferenceTypeService;
 
     @GetMapping
-    public List<ReferenceTypeModel> getAll() {
+    public List<ReferenceTypeViewModel> getAll() {
         return iReferenceTypeService.getAll();
     }
 
@@ -40,21 +41,26 @@ public class ReferenceTypeController {
         return ResponseEntity.ok().body("Successfully saved record");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable Long id) {
-        iReferenceTypeService.deleteById(id);
+    @DeleteMapping
+    public ResponseEntity<Object> delete(@RequestBody ReferenceTypeViewModel searchModel) {
+        iReferenceTypeService.deleteById(searchModel);
         return ResponseEntity.ok().body("Successfully deleted record");
     }
 
-    @DeleteMapping
+    @DeleteMapping("/byIds")
     public ResponseEntity<Object> delete(@RequestBody List<Long> ids) {
         iReferenceTypeService.deleteByIdIn(ids);
         return ResponseEntity.ok().body("Successfully deleted records");
     }
 
     @PostMapping("/search")
-    public List<ReferenceTypeModel> search(@RequestBody ReferenceTypeSearchModel searchModel) {
+    public List<ReferenceTypeViewModel> search(@RequestBody ReferenceTypeSearchModel searchModel) {
         return iReferenceTypeService.search(searchModel);
+    }
+
+    @PostMapping("/findByTypeAndDesc")
+    public List<ReferenceTypeViewModel> findByTypeAndDesc(@RequestBody ReferenceTypeViewModel searchModel) {
+        return iReferenceTypeService.findByTypeAndDesc(searchModel);
     }
 
     @PostMapping("/export")

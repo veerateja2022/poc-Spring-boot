@@ -64,6 +64,35 @@
 			"response": []
 		},
 		{
+			"name": "Find By Type And Desc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"referenceType\":\"referenceType1\",\r\n    \"referenceTypeDesc\":\"referenceTypeDesc1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/referenceType/findByTypeAndDesc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"referenceType",
+						"findByTypeAndDesc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Update",
 			"request": {
 				"method": "POST",
@@ -96,16 +125,24 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"referenceType\":\"referenceType2\",\r\n    \"referenceTypeDesc\":\"referenceTypeDesc2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/referenceType/1",
+					"raw": "http://localhost:8080/referenceType",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"referenceType",
-						"1"
+						"referenceType"
 					]
 				}
 			},
